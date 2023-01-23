@@ -1,12 +1,28 @@
 import express from "express";
+import mongoose from "mongoose";
+import bodyparser from "body-parser";
+import routes from "./routes/soccerRoutes";
 
 const app = express();
 const PORT = 3000;
+
+/* BODY PARSER */
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.json());
+
+/* MONGOOSE CONNECTION */
+mongoose.set('strictQuery', false);
+mongoose.Promise = global.Promise; 
+mongoose.connect('mongodb://localhost/soccerDB', () => 
+    console.log('connected to mongo!')
+);
 
 /* ROUTES */
 app.get("/", (req, res) => 
     res.send(`soccer app is running on port ${PORT}`)
 );
+
+routes(app);
 
 /* SERVER */
 app.listen(PORT, () => 
