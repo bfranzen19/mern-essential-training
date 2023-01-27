@@ -412,8 +412,59 @@ const routes = (app) => {
 ---
 ## 4. MERN: REACT FRONT END
 ### ADD A STYLING LIBRARY & FOLDER STRUCTURE
-#### 
+#### adding [materialize](https://materializecss.com/)
+* install
+    * [cdn version](https://materializecss.com/getting-started.html)
+    * in `frontend/public/index.html`:
+        * add `css cdn` link after the `manifest` link
+        * move the javascript `script` just before the closing `body` tag
+* open a terminal in the frontend folder
+* start the application (this should open a new chrome window)
+```bash
+cd frontend/
+npm start
+```
 
+#### creating folders
+* in `src/`
+    * create `Components` directory
+    * create `Tests` directory
+* in `Components/`
+    * create `Player` directory
+```bash
+cd src
+mkdir Components
+mkdir Components/Player
+mkdir Tests
+```
+
+#### moving folders
+* move `App.js` and `App.css` inside of the `Components` directory
+* move `App.test.js` inside of the `Tests` directory
+
+#### alter files
+* change the `App` import to reflect new structure
+* empty `App.css`
+```javascript
+import App from '../Components/App';
+```
+
+#### create files for the `Player` component
+* create a new file `PlayerList.js`
+* create a new file `PlayerSingle.js`
+* create a new file `PlayerForm.js`
+```bash
+touch Components/Player/PlayerList.js 
+touch Components/Player/PlayerSingle.js
+touch Components/Player/PlayerForm.js
+```
+
+* correct the `App` import to reflect the new structure in `index.js`
+```javascript
+import App from './Components/App';
+```
+
+* delete the `index.css` file
 
 ### ADD THE MAIN PAGE STRUCTURE
 #### 
