@@ -1,14 +1,19 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyparser from "body-parser";
+import cors from "cors";
 import routes from "./routes/soccerRoutes";
 
+
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 /* BODY PARSER */
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
+
+/* CORS */
+app.use(cors());
 
 /* MONGOOSE CONNECTION */
 mongoose.set('strictQuery', false);
