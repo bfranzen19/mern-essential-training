@@ -402,13 +402,50 @@ const routes = (app) => {
 
 
 ### CREATE A `PUT` ENDPOINT
-#### 
+#### create a new `updatePlayer` function in `playerController.js`
+* use `findOneAndUpdate` method, pass the id, body, and set `new: true` so that the updated object is returned, not the original
+```javascript
+export const updatePlayer = (req, res) => {
+    Player.findOneAndUpdate({ _id: req.params.PlayerId }, req.body, { new: true }, (err, Player) => {
+        if(err) res.send(err.message);
+        res.json(Player);
+    });
+};   
+```
+
+#### create the route
+* in `soccerRoutes.js`:
+    * import the new `updatePlayer` function from the `playerControllers.js`
+    * add a `PUT` route to the `/player/:PlayerId`
+    ```javascript
+        app.route('/player/:PlayerId')
+            .get(getPlayerById) // GET endpoint - player by Id    
+            .put(updatePlayer)  // PUT endpoint - update player
+    ```
 
 
 ### CREATE A `DELETE` ENDPOINT
-#### 
+#### create a new `delete` function in `playerController.js`
+* use `remove` method, pass the id, alter the return
+```javascript
+export const deletePlayer = (req, res) => {
+    Player.remove({ _id: req.params.PlayerId }, (err, Player) => {
+        if(err) res.send(err.message);
+        res.json({ message: `successfully deleted player with id ${req.params.PlayerId}` });
+    });
+};
+```
 
-
+#### create the route
+* in `soccerRoutes.js`:
+    * import the new `deletePlayer` function from the `playerControllers.js`
+    * add a `DELETE` route to the `/player/:PlayerId`
+```javascript
+app.route('/player/:PlayerId')
+        .get(getPlayerById)     // GET endpoint - player by Id    
+        .put(updatePlayer)      // PUT endpoint - update player
+        .delete(deletePlayer);  // DELETE endpoint - delete player
+```
 ---
 ## 4. MERN: REACT FRONT END
 ### ADD A STYLING LIBRARY & FOLDER STRUCTURE
