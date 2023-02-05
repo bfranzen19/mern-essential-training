@@ -1,0 +1,8 @@
+{
+    "tabWidth": 4,
+    "bracketSpacing": true,
+    "proseWrap": "preserve",
+    "embeddedLanguageFormatting": "off",
+    "singleAttributePerLine": true,
+    "bracketSameLine": true
+}

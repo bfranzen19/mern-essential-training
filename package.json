@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "check": "npx prettier --check .",
+        "p": "npx prettier --write ."
+    },
+    "dependencies": {
+        "axios": "^1.2.5"
+    },
+    "devDependencies": {
+        "prettier": "2.8.3"
+    }
+}
