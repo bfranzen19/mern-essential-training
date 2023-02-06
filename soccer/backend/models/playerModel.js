@@ -2,54 +2,54 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 export const PlayerSchema = new Schema({
-    firstName: { 
+    firstName: {
         type: String,
-        required: true
+        required: true,
     },
-    lastName: { 
+    lastName: {
         type: String,
-        required: true
+        required: true,
     },
-    email: { 
+    email: {
         type: String,
-        required: true
+        required: true,
     },
-    phone: { 
-        type: Number
+    phone: {
+        type: Number,
     },
-    isCoach: { 
+    isCoach: {
         type: Boolean,
-        default: false
+        default: false,
     },
-    team: { 
-        type: String
+    team: {
+        type: String,
     },
     speed: {
         type: Number,
-        enum: [1, 2, 3]
+        enum: [1, 2, 3],
     },
     strength: {
         type: Number,
-        enum: [1, 2, 3]
+        enum: [1, 2, 3],
     },
     endurance: {
         type: Number,
-        enum: [1, 2, 3]
+        enum: [1, 2, 3],
     },
     ability: {
         type: Number,
-        enum: [1, 2, 3]
+        enum: [1, 2, 3],
     },
     techniques: {
         type: Number,
-        enum: [1, 2, 3]
+        enum: [1, 2, 3],
     },
     tactical: {
         type: Number,
-        enum: [1, 2, 3]
+        enum: [1, 2, 3],
     },
     created_date: {
         type: Date,
-        default: Date.now
-    }
+        default: Date.now,
+    },
 });
