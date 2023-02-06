@@ -1,6 +1,5 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "prettier": "^2.8.3"
-  }
+    "dependencies": {
+        "cors": "^2.8.5"
+    }
 }
