@@ -27,26 +27,22 @@ export const getPlayerById = (req, res) => {
 };
 
 export const updatePlayer = (req, res) => {
-    Player.findOneAndUpdate({ _id: req.params.PlayerId }, req.body, { new: true }, (err, Player) => {
-<<<<<<< HEAD
-        if(err) res.send(err.message);
-        res.json(Player);
-    });
+    Player.findOneAndUpdate(
+        {_id: req.params.PlayerId},
+        req.body,
+        {new: true},
+        (err, Player) => {
+            if (err) res.send(err.message);
+            res.json(Player);
+        }
+    );
 };   
 
 export const deletePlayer = (req, res) => {
-    Player.remove({ _id: req.params.PlayerId }, (err, Player) => {
-        if(err) res.send(err.message);
-=======
+    Player.remove({_id: req.params.PlayerId}, (err, Player) => {
         if (err) res.send(err.message);
-        res.json(Player);
-    });
-};
-
-export const deletePlayer = (req, res) => {
-    Player.remove({ _id: req.params.PlayerId }, (err, Player) => {
-        if (err) res.send(err.message);
->>>>>>> 686fce4830f21c58e9880729630d557063e8ac95
-        res.json({ message: `successfully deleted player with id ${req.params.PlayerId}` });
+        res.json({
+            message: `successfully deleted player with id ${req.params.PlayerId}`,
+        });
     });
 };
